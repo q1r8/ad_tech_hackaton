@@ -1,3 +1,7 @@
 waitress
 flask
 catboost
+pandas
+holidays
+geopy
+dash

@@ -3,7 +3,7 @@ version: '2.3'
 services:
   app:
     image: app
-#    runtime: nvidia
+    runtime: nvidia
     pid: "host"
     ports:
       - 5010:5000
@@ -17,24 +17,23 @@ services:
       dockerfile: ./Dockerfile
     command: waitress-serve --port=5000 backend:app # команда для поднятия сервиса с моделями
 
-#  bot:
-#    image: bot
-#    runtime: nvidia
-#    pid: "host"
-#    ports:
-#      - 5011:5000
-#    stdin_open: true
-#    tty: true
-#    volumes:
-#      - .:/workspace/bot
-#    build:
-#      context: .
-#      network: host
-#      dockerfile: ./Dockerfile
-#    command: python ./bot/telebot/bot.py # команда для поднятия бота
+  dash:
+   image: dash
+   runtime: nvidia
+   pid: "host"
+   ports:
+     - 5011:5000
+   stdin_open: true
+   tty: true
+   volumes:
+     - .:/workspace/dash
+   build:
+     context: .
+     network: host
+     dockerfile: ./Dockerfile
+   command: python ./dash/app.py # команда для поднятия фронта на dash'е
 
 
 volumes:
-#  inference:
   app:
-#  bot:
+  dash:

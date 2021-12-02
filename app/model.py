@@ -1,8 +1,8 @@
 from catboost import CatBoostClassifier
 
 
-def get_catboost_model():
+def get_catboost_model(path: str):
     model = CatBoostClassifier()
-    model.load_model('./classification_model/catboost_model.cbm')
+    model.load_model(path)
 
     return model
