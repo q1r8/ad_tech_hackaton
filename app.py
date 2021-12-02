@@ -3,12 +3,22 @@ from dash.dependencies import Input, Output, State
 from dash import dcc
 from dash import html
 # from dash import dash_table
+import requests
+import json
 
 import pandas as pd
 import plotly.express as px
 
 import base64
 import io
+
+from preprocessing_data.preprocess_input_data import preprocess_dataframe
+
+with open('./dash/preprocessing_data/city_coords.json', 'r') as f:
+    cities_coords = json.load(f)
+
+URL = 'http://10.10.67.145:5010/api/test'
+headers = {'Content-type': 'application/json'}
 
 # df = pd.read_csv('asterank_exo.csv')
 
@@ -55,7 +65,11 @@ def parse_contents(contents, filename, date):
             df = pd.read_csv(
                 io.StringIO(decoded.decode('utf-8')))
 
-            
+            # df = preprocess_dataframe(df, cities_coords, test_mode=True)
+            df = pd.DataFrame([{'123':123}])
+
+            r = requests.post(URL, data=json.dumps(df.to_dict()), headers=headers)
+            print(r.json()['message'])
         else:
             return html.Div([
                 'Необходимо загрузить файл формата CSV.'

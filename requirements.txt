@@ -5,3 +5,4 @@ pandas
 holidays
 geopy
 dash
+requests
