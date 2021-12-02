@@ -65,11 +65,12 @@ def parse_contents(contents, filename, date):
             df = pd.read_csv(
                 io.StringIO(decoded.decode('utf-8')))
 
-            # df = preprocess_dataframe(df, cities_coords, test_mode=True)
-            df = pd.DataFrame([{'123':123}])
+            print('dataframe_is_processing')
+            df = preprocess_dataframe(df, cities_coords, test_mode=True)
 
             r = requests.post(URL, data=json.dumps(df.to_dict()), headers=headers)
-            print(r.json()['message'])
+            df['Segment'] = eval(r.json()['predicts'])
+            
         else:
             return html.Div([
                 'Необходимо загрузить файл формата CSV.'
