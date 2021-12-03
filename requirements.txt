@@ -1,0 +1,9 @@
+waitress
+flask
+catboost
+pandas
+holidays
+geopy
+requests==2.26.0
+python-telegram-bot==12.1.1
+tqdm
