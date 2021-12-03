@@ -49,6 +49,24 @@ docker-compose build
 ~~~
 docker-compose up -d
 ~~~
+Для локальной работы с проектом нужно настроить виртуальное окружение:
+~~~
+python3 -m virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+~~~
+## Важно!
+<h4>Поменять URL в скрипте [client.py](client.py) на локальный ip устройства, на котором запускается проект</h4>
+
+Пример использование функционала: 
+~~~
+python client.py -ci test_csv.csv -co csv_with_responses.csv -pfr reports
+~~~
+<h4>Где:</h4>
+<ul>
+    <li>-ci - путь до csv с данными, по которым нужно сделать предикты </li>
+	<li>-co - путь, куда будет сохранена csv с предиктами.</li>
+	<li>-pfr - путь до директории, в которую будут сохраняться отчеты.</li>
 
 РАЗРАБОТЧИКИ
 
