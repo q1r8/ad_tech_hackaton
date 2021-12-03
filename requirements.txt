@@ -4,5 +4,5 @@ catboost
 pandas
 holidays
 geopy
-dash
-requests
+requests==2.26.0
+python-telegram-bot==12.1.1

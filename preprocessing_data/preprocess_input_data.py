@@ -74,16 +74,12 @@ def categorical_data_to_string(df, columns: list) -> pd.DataFrame:
 
 def preprocess_dataframe(df: pd.DataFrame, cities_coords, test_mode: bool = False) -> pd.DataFrame:
     df = filling_category_data(df, ['gamecategory', 'subgamecategory', 'bundle', 'oblast', 'city'])
-    print('----')
 
     df = get_spreed_time(df)
-    print('----')
 
     df = get_coordinates_from_city_str(df, cities_coords)
-    print('----')
 
     df = drop_useless_columns(df, ['shift', 'created'])
-    print('----')
 
     df = categorical_data_to_string(df, df.columns[1:-2].tolist())
 

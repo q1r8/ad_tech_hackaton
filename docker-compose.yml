@@ -3,7 +3,7 @@ version: '2.3'
 services:
   app:
     image: app
-    # runtime: nvidia
+    runtime: nvidia
     pid: "host"
     ports:
       - 5010:5000
@@ -19,4 +19,4 @@ services:
 
 
 volumes:
-  app:it add
+  app:
