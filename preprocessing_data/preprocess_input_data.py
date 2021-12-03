@@ -48,7 +48,6 @@ def filling_digital_data(df: pd.DataFrame, column: list) -> pd.DataFrame:
 
 
 def get_spreed_time(df: pd.DataFrame, column: str='created') -> pd.DataFrame:
-    
     df[column] = df[column].apply(lambda x: datetime.datetime.strptime(x, "%Y-%m-%d %H:%M:%S"))
     
     df['year'] = df['created'].apply(lambda x: x.year)
