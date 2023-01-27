@@ -17,6 +17,5 @@ services:
       dockerfile: ./Dockerfile
     command: waitress-serve --port=5000 backend:app # команда для поднятия сервиса с моделями
 
-
 volumes:
   app:
