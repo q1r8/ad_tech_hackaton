@@ -10,6 +10,7 @@ model = get_catboost_model(model_path)
 
 @app.route('/api/test', methods=['POST'])
 def test():
+    
     r = request.data.decode()
     data = pd.DataFrame(eval(r))
 
